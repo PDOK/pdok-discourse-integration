@@ -1,1 +1,1 @@
-# pdok-discord-integration
+# pdok-discourse-integration
