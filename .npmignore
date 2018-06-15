@@ -1,0 +1,10 @@
+.gitignore
+.travis.yml
+coverage
+docs
+src
+jest.config.js
+tsconfig.json
+tslint.json
+webpack.config.js
+webpack.development.js

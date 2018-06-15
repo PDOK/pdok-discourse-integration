@@ -1,1 +1,1 @@
-# pdok-discourse-integration
+# PDOK Discourse Integration
