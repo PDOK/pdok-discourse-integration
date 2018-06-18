@@ -6,8 +6,6 @@ const env = process.env.NODE_ENV;
 const srcDir = path.resolve(__dirname, 'src');
 const buildDir = path.resolve(__dirname, 'build');
 
-console.log(JSON.stringify(process.env.NODE_ENV));
-
 module.exports = {
   mode: env,
   entry: {

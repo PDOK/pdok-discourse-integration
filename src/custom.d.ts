@@ -1,1 +1,2 @@
-declare module 'redux-mock-store';
+declare module 'moment-timezone';
+declare module 'sort-json-array';
