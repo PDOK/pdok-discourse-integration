@@ -64,7 +64,7 @@ class Topics extends React.Component<Props, State> {
         <Row>
           <Col md={{ size: 12, offset: 2 }}>
             <h2 className="heading section-heading heading-brand">Actueel in de community</h2>
-            <ul className="list list-default discussions">
+            <ul className="list list-default">
                {this.state.topics.map(topic => (
                 <li key={topic.id} className="list-item">
                   <Row>
