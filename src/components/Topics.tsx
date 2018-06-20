@@ -62,11 +62,11 @@ class Topics extends React.Component<Props, State> {
       <section className="section" aria-label="Community">
       <Container>
         <Row>
-          <Col md={{ size: 8, offset: 2 }}>
+          <Col md={{ size: 12, offset: 2 }}>
             <h2 className="heading section-heading heading-brand">Actueel in de community</h2>
             <ul className="list list-default discussions">
-              {this.state.topics.map(topic => (
-                <li key={topic.id} className="list-item discussion">
+               {this.state.topics.map(topic => (
+                <li key={topic.id} className="list-item">
                   <Row>
                     <Col md="9">
                       <a href={`https://forum.pdok.nl/t/${topic.id}`} className="discussion-link heading discussion-heading" target="_blank">{topic.title}</a>

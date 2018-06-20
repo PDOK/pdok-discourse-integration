@@ -1,3 +1,4 @@
+import './polyfills';
 import Topics from './components/Topics';
 import renderComponent from './renderComponent';
 

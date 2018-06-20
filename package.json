@@ -1,7 +1,7 @@
 {
   "name": "@pdok/pdok-discourse-integration",
   "description": "PDOK Discourse Integration",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "license": "MIT",
   "main": "build/index.js",
   "repository": {
@@ -15,6 +15,7 @@
     "prepublishOnly": "npm run clean && npm run build"
   },
   "dependencies": {
+    "es6-promise": "^4.2.4",
     "moment-timezone": "^0.5.17",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
