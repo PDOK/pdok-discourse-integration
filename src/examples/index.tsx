@@ -19,7 +19,7 @@ const App = () => (
         </Navbar>
       </header>
       <main className="mt-4">
-        <Container fluid>
+        <Container>
           <Switch>
             <Route exact path="/topic" component={TopicExample} />
             <Redirect from="/" to="/topic" />
