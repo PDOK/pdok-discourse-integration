@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import moment from 'moment-timezone';
 import sortJsonArray from 'sort-json-array';
 
@@ -60,37 +60,41 @@ class Topics extends React.Component<Props, State> {
     const url = new URL(this.props.uri);
     moment.locale('nl');
     return (
-      <section className="section" aria-label="Community">
-      <Container>
-        <Row>
-          <Col md={{ size: 12, offset: 2 }}>
-            <h2 className="heading section-heading heading-brand">Actueel in de community</h2>
-            <ul className="list list-default">
-               {this.state.topics.map(topic => (
-                <li key={topic.id} className="list-item">
-                  <Row>
-                    <Col md="9">
-                      <a href={`${url.protocol}//${url.host}/t/${topic.id}`}
-                      className="discussion-link heading discussion-heading" target="_blank">{topic.title}</a>
-                    </Col>
-                    <Col md="3">
-                      <div className="discussion-metas">
-                        <span className="discussion-meta discussion-meta-comments">
-                        {topic.posts_count} <span>reactie{topic.posts_count.toString() !== '1' ? 's' : ''}</span></span>
-                        <span className="discussion-meta discussion-meta-upvotes">{topic.like_count}
-                        <span>like{topic.like_count.toString() !== '1' ? 's' : ''}</span></span>
-                      </div>
-                    </Col>
-                  </Row>
-                  <span className="discussion-date">Laatste reactie op {
-                    moment(topic.last_posted_at).format('LL [om] LT [uur]') }</span>
-                </li>
-              ))}
-            </ul>
-          </Col>
-        </Row>
-      </Container>
-      </section>
+      <>
+        <h2>Actueel in de community</h2>
+           {this.state.topics.map((topic) => {
+             const date = moment(topic.last_posted_at).format('DD MMMM YYYY');
+             const time = moment(topic.last_posted_at).format('HH:mm');
+             return (
+                 <Row key={topic.id} className="overview-item">
+                   <Col lg="9">
+                     <h3 className="overview-header">
+                       <a href={`${url.protocol}//${url.host}/t/${topic.id}`}>{topic.title}</a>
+                     </h3>
+                     <p>Laatste reactie op <time dateTime={date}>{date}</time> om <time
+                         dateTime={time}>{time}</time> uur
+                     </p>
+                   </Col>
+                   <Col lg="3">
+                     <Row className="discussion-metadata">
+                       <Col xs="6">
+                         <p>
+                           <span className="ico ico-social-comment discussion-metadata-icon" aria-hidden="true"/>
+                           <span className="sr-only">Aantal reacties:</span>{topic.posts_count}
+                         </p>
+                       </Col>
+                       <Col xs="6">
+                         <p>
+                           <span className="ico ico-social-like discussion-metadata-icon" aria-hidden="true"/>
+                           <span className="sr-only">Aantal likes:</span>{topic.like_count}
+                         </p>
+                       </Col>
+                     </Row>
+                   </Col>
+                 </Row>
+             );
+           })}
+      </>
     );
   }
 }
